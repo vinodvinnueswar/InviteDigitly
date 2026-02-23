@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { API_Path } from '../helpers/ApiPath'
 
 const Samples_Page = () => {
-  const navigate = useNavigate()
 
-  const [vendorData, setVendorData] = useState({ vendors: [] })
+  const navigate = useNavigate()
+  const [vendors, setVendors] = useState([])
   const [loading, setLoading] = useState(true)
 
   const vendorFirmHandler = async () => {
     try {
       const response = await fetch(`${API_Path}/vendor/all-vendors`)
-      const newData = await response.json()
-      setVendorData(newData)
+      const data = await response.json()
+      setVendors(data.vendors || [])
       setLoading(false)
     } catch (error) {
       console.error('failed to fetch data', error)
@@ -24,47 +24,79 @@ const Samples_Page = () => {
     vendorFirmHandler()
   }, [])
 
-  if (loading) {
-    return <h2 style={{ textAlign: 'center' }}>Loading inventory...</h2>
-  }
+ if (loading) {
+  return (
+    <div className="premium-loading">
+
+      <div className="luxury-spinner"></div>
+
+      <h2>Loading Beautiful Invitation Designs...</h2>
+
+      <div className="skeleton-grid">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <div className="skeleton-card" key={index}></div>
+        ))}
+      </div>
+
+    </div>
+  )
+}
 
   return (
     <div className="Inventory">
-      {/* <div className="Back-Button">
-        <button className="btn-Back" onClick={() => navigate('/')}>
-          🡰
-        </button>
-      </div> */}
-
-      <br />
-      <br />
 
       <div className="Inventory-Details">
-        <h2>Inventory</h2> <br />
-        <p>Here the products to make your invitation more elegant</p>
+        <h2>Wedding Invitation Templates</h2>
+        <p>Select a design and customize your digital wedding card</p>
       </div>
 
       <div className="Inventory-Products">
-        {vendorData.vendors.length === 0 && <h3>No items found</h3>}
 
-        {vendorData.vendors.map((vendor) =>
-          vendor.inventory?.map((item, index) => (
-            <>
-            <div className="card">
-            <Link
-              key={`${vendor._id}-${index}`}
-              to={item?.webUrl} style={{textDecoration: "none"}}
-            >
-              <div className="Products">
-                <img src={item.image} alt="product" />
-                {/* <h4>{item.name}</h4> */}
+        {vendors.length === 0 && <h3>No items found</h3>}
+
+        {vendors.map(vendor =>
+          vendor.inventory?.map(item => (
+
+            <div className="premium-card" key={item._id}>
+
+              {/* Preview Link */}
+              <a href={item.webUrl} target="_blank" rel="noopener noreferrer" className="image-wrapper">
+
+                <img
+                  src={item.image || "/no-image.png"}
+                  alt={item.name}
+                  loading="lazy"
+                />
+
+                <div className="overlay">
+                  <span className="preview-btn">Live Preview</span>
+                </div>
+
+                <span className="badge">POPULAR</span>
+
+              </a>
+
+              <div className="card-content">
+                <h4>{item.name}</h4>
+
+                <div className="price-box">
+                  <span className="old-price">₹2999</span>
+                  <span className="new-price">₹{item.price}</span>
+                </div>
+
+                <button
+                  className='btn-order'
+                  onClick={() => navigate('/Create_Invitation')}
+                >
+                  Order Now
+                </button>
               </div>
-            </Link>
-            <button className='btn-order' onClick={() => navigate('/Create_Invitation')}>Order Now</button>
+
             </div>
-            </>
+
           ))
         )}
+
       </div>
     </div>
   )

@@ -38,9 +38,13 @@ const Categories = () => {
 
       <h2>Choose Your Invitation Category</h2>
 
+      <br />
+
       <p className="category-subtitle">
-        Discover beautifully designed digital invitations.
+         Choose a category and start customizing your premium digital invite.
       </p>
+
+      <br />
 
       <div className="category-grid">
         {categories.map((item, index) => (
