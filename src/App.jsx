@@ -6,7 +6,6 @@ import Categories from './components/Categories'
 import './App.css'
 import Filtered from './pages/Filtered';
 import CreateInvitation from './components/CreateInvitation';
-// import TemplatePage from './pages/TemplatePage';
  
  const App = () => {
    return (

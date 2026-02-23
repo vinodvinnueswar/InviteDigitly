@@ -687,14 +687,11 @@ border-radius:20px;
 
 
 /* Logo animtion */
-/* FULL SCREEN DARK BACKGROUND */
+/* ===== FULLSCREEN BACKGROUND ===== */
 .brand-loader{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100vh;
-  background:#0b0b0d;
+  inset:0;
+  background:radial-gradient(circle at center,#0e0e11 0%,#050506 70%,#000000 100%);
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -703,77 +700,103 @@ border-radius:20px;
   overflow:hidden;
 }
 
-/* LOGO CONTAINER */
-.logo-container{
+/* LOGO WRAPPER */
+.logo-wrapper{
   position:relative;
+  width:260px;
+  height:260px;
   display:flex;
   align-items:center;
   justify-content:center;
-  animation:logoZoom 2.5s ease forwards;
 }
 
-/* LOGO IMAGE */
-.brand-logo{
-  width:340px;
-  max-width:80%;
-  opacity:0;
-  animation:fadeLogo 1.8s ease forwards;
-}
-
-/* FADE IN */
-@keyframes fadeLogo{
-  from{
-    opacity:0;
-    transform:scale(0.85);
-  }
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
-}
-
-/* SLOW ZOOM EFFECT */
-@keyframes logoZoom{
-  0%{transform:scale(0.9);}
-  50%{transform:scale(1.05);}
-  100%{transform:scale(1);}
-}
-
-/* GOLDEN SHINE EFFECT */
-.shine{
+/* GOLD AURA BEHIND LOGO */
+.logo-aura{
   position:absolute;
-  top:0;
-  left:-75%;
-  width:50%;
-  height:100%;
-  background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,215,0,0.7),
-    transparent
-  );
-  transform:skewX(-25deg);
-  animation:shineMove 2.2s ease-in-out 0.8s forwards;
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(212,175,55,0.55), transparent 70%);
+  filter:blur(20px);
+  animation:auraPulse 3s ease-in-out infinite;
 }
 
-@keyframes shineMove{
-  0%{left:-75%;}
-  100%{left:130%;}
+@keyframes auraPulse{
+  0%{transform:scale(0.9); opacity:.5;}
+  50%{transform:scale(1.15); opacity:.9;}
+  100%{transform:scale(0.9); opacity:.5;}
 }
 
-/* LOADING TEXT */
-.loading-text{
+/* LOGO */
+.brand-logo{
+  width:200px;
+  z-index:2;
+  animation:floatLogo 4s ease-in-out infinite, logoAppear 1.6s ease forwards;
+  opacity:0;
+}
+
+@keyframes logoAppear{
+  from{opacity:0; transform:scale(.7);}
+  to{opacity:1; transform:scale(1);}
+}
+
+/* FLOATING EFFECT */
+@keyframes floatLogo{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0px);}
+}
+
+/* BRAND NAME */
+.brand-title{
   margin-top:30px;
-  font-size:18px;
+  font-size:42px;
   letter-spacing:2px;
+  font-family:'Playfair Display', serif;
+  background:linear-gradient(90deg,#f5e6a8,#d4af37,#fff2b2,#d4af37);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:titleFade 2s ease forwards;
+}
+
+@keyframes titleFade{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* TAGLINE */
+.loading-text{
+  margin-top:8px;
+  font-size:16px;
   color:#d4af37;
-  font-family: 'Playfair Display', serif;
-  animation:fadeText 2s ease forwards;
+  letter-spacing:3px;
+  opacity:0;
+  animation:fadeText 2.5s ease forwards;
 }
 
 @keyframes fadeText{
-  from{opacity:0;}
   to{opacity:1;}
+}
+
+/* ===== SPARKLE PARTICLES ===== */
+.spark{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:#ffd700;
+  border-radius:50%;
+  box-shadow:0 0 8px #ffd700,0 0 15px #ffd700;
+  animation:twinkle 2s infinite ease-in-out;
+}
+
+.s1{ top:15%; left:20%; animation-delay:0s;}
+.s2{ top:70%; left:15%; animation-delay:.6s;}
+.s3{ top:20%; right:18%; animation-delay:1.2s;}
+.s4{ bottom:18%; right:22%; animation-delay:1.8s;}
+
+@keyframes twinkle{
+  0%,100%{opacity:.2; transform:scale(.7);}
+  50%{opacity:1; transform:scale(1.5);}
 }
 
 
