@@ -687,51 +687,53 @@ border-radius:20px;
 
 
 /* Logo animtion */
-/* ===== FULLSCREEN BACKGROUND ===== */
-.brand-loader{
+/* ===== WEDDING THEME LOADER ===== */
+
+.wedding-loader{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle at center,#0e0e11 0%,#050506 70%,#000000 100%);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
   z-index:9999;
-  overflow:hidden;
-}
-
-/* LOGO WRAPPER */
-.logo-wrapper{
-  position:relative;
-  width:260px;
-  height:260px;
   display:flex;
   align-items:center;
   justify-content:center;
+
+  /* soft wedding gradient */
+  background:linear-gradient(
+    135deg,
+    #f8e7e7 0%,
+    #f3dada 35%,
+    #efd1d1 70%,
+    #f7e9e9 100%
+  );
 }
 
-/* GOLD AURA BEHIND LOGO */
-.logo-aura{
-  position:absolute;
-  width:240px;
-  height:240px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(212,175,55,0.55), transparent 70%);
-  filter:blur(20px);
-  animation:auraPulse 3s ease-in-out infinite;
+/* card animation */
+.card-opening{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align:center;
+  animation:cardFade 1.6s ease forwards;
+  padding:40px 30px;
+  border-radius:20px;
 }
 
-@keyframes auraPulse{
-  0%{transform:scale(0.9); opacity:.5;}
-  50%{transform:scale(1.15); opacity:.9;}
-  100%{transform:scale(0.9); opacity:.5;}
+@keyframes cardFade{
+  from{
+    opacity:0;
+    transform:translateY(40px) scale(.95);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
 }
 
-/* LOGO */
-.brand-logo{
-  width:200px;
-  z-index:2;
-  animation:floatLogo 4s ease-in-out infinite, logoAppear 1.6s ease forwards;
+/* logo */
+.loader-logo{
+  width:140px;
+  margin-bottom:10px;
+  animation:logoAppear 1.8s ease forwards;
   opacity:0;
 }
 
@@ -740,63 +742,65 @@ border-radius:20px;
   to{opacity:1; transform:scale(1);}
 }
 
-/* FLOATING EFFECT */
-@keyframes floatLogo{
-  0%{transform:translateY(0px);}
-  50%{transform:translateY(-10px);}
-  100%{transform:translateY(0px);}
-}
-
-/* BRAND NAME */
-.brand-title{
-  margin-top:30px;
-  font-size:42px;
-  letter-spacing:2px;
+/* title */
+.loader-title{
   font-family:'Playfair Display', serif;
-  background:linear-gradient(90deg,#f5e6a8,#d4af37,#fff2b2,#d4af37);
+  font-size:42px;
+  margin:10px 0 5px;
+  background:linear-gradient(90deg,#b76e79,#d4af37,#b76e79);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:titleFade 2s ease forwards;
+  letter-spacing:1px;
 }
 
-@keyframes titleFade{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
+/* ornament divider */
+.ornament{
+  width:120px;
+  height:2px;
+  margin:12px auto;
+  background:linear-gradient(90deg,transparent,#d4af37,transparent);
+  position:relative;
 }
 
-/* TAGLINE */
-.loading-text{
-  margin-top:8px;
-  font-size:16px;
-  color:#d4af37;
-  letter-spacing:3px;
-  opacity:0;
-  animation:fadeText 2.5s ease forwards;
-}
-
-@keyframes fadeText{
-  to{opacity:1;}
-}
-
-/* ===== SPARKLE PARTICLES ===== */
-.spark{
+.ornament::after{
+  content:"❦";
   position:absolute;
-  width:6px;
-  height:6px;
-  background:#ffd700;
-  border-radius:50%;
-  box-shadow:0 0 8px #ffd700,0 0 15px #ffd700;
-  animation:twinkle 2s infinite ease-in-out;
+  left:50%;
+  transform:translateX(-50%);
+  top:-14px;
+  color:#d4af37;
+  font-size:20px;
 }
 
-.s1{ top:15%; left:20%; animation-delay:0s;}
-.s2{ top:70%; left:15%; animation-delay:.6s;}
-.s3{ top:20%; right:18%; animation-delay:1.2s;}
-.s4{ bottom:18%; right:22%; animation-delay:1.8s;}
+/* subtitle */
+.loader-subtitle{
+  margin-top:18px;
+  font-size:15px;
+  color:#7a4a4a;
+  letter-spacing:1.5px;
+}
 
-@keyframes twinkle{
-  0%,100%{opacity:.2; transform:scale(.7);}
-  50%{opacity:1; transform:scale(1.5);}
+/* GOLD LOADING LINE */
+.gold-loader{
+  width:260px;
+  height:3px;
+  margin:30px auto 0;
+  background:#eadede;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.gold-loader span{
+  display:block;
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#d4af37,#ffd700,#d4af37);
+  animation:loadingLine 3s ease forwards;
+}
+
+@keyframes loadingLine{
+  0%{width:0%;}
+  100%{width:100%;}
 }
 
 

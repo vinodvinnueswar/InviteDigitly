@@ -64,7 +64,9 @@ if (loading) {
        
       <div className="Inventory">
         <div className="Inventory-Details">
-           <h2>{category.toUpperCase()} INVENTORY</h2>
+           <h2>{category.toUpperCase()} INVITATIONS</h2>
+             <p>Select a design and customize your digital wedding card</p>
+        <p style={{fontSize:"12px"}}>Note : Click the images to see the Digital Cards</p>
         </div>
       <div className="Inventory-Products">
             {filteredData.length > 0 ? (

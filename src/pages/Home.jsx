@@ -6,7 +6,7 @@ import Features from '../components/Features'
 import Themes from '../components/Themes'
 import Context from '../components/Context'
 import Footer_site from '../components/Footer_site'
-import logo from "../assets/Logo/Logo-img.png";
+import logo from "../assets/Logo/Logo.png";
 
 const Home = () => {
 
@@ -15,6 +15,7 @@ const Home = () => {
   const introPlayed = sessionStorage.getItem("introPlayed");
   return !introPlayed; 
 });
+
 
 
  useEffect(() => {
@@ -38,31 +39,29 @@ const Home = () => {
   
 if (loading) {
   return (
-    <div className="brand-loader">
+    <div className="wedding-loader">
 
-      <div className="logo-wrapper">
+      <div className="card-opening">
 
-        {/* Glow Circle */}
-        <div className="logo-aura"></div>
+        <img src={logo} alt="InviteDigitly" className="loader-logo" />
 
-        {/* Logo */}
-        <img src={logo} alt="InviteDigitly" className="brand-logo"/>
+        <h1 className="loader-title">InviteDigitly</h1>
 
-        {/* Sparkles */}
-        <span className="spark s1"></span>
-        <span className="spark s2"></span>
-        <span className="spark s3"></span>
-        <span className="spark s4"></span>
+        <div className="ornament"></div>
+
+        <p className="loader-subtitle">
+         Elegant Digital Invitations
+        </p>
+
+        <div className="gold-loader">
+          <span></span>
+        </div>
 
       </div>
-
-      <h2 className="brand-title">InviteDigitly</h2>
-      <p className="loading-text">Elegant Digital Invitations</p>
 
     </div>
   )
 }
-
   return (
     <div className="Home-head-tags fade-in">
       <Navbar/>

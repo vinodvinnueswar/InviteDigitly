@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import { API_Path } from '../helpers/ApiPath'
 
 const Samples_Page = () => {
+  const [loading, setLoading] = useState((true))
 
   const navigate = useNavigate()
   const [vendors, setVendors] = useState([])
-  const [loading, setLoading] = useState(true)
-
+  
+  
   const vendorFirmHandler = async () => {
     try {
       const response = await fetch(`${API_Path}/vendor/all-vendors`)
@@ -46,8 +47,9 @@ const Samples_Page = () => {
     <div className="Inventory">
 
       <div className="Inventory-Details">
-        <h2>Wedding Invitation Templates</h2>
+        <h2> Invitation Templates</h2>
         <p>Select a design and customize your digital wedding card</p>
+        <p style={{fontSize:"12px"}}>Note : Click the images to see the Digital Cards</p>
       </div>
 
       <div className="Inventory-Products">

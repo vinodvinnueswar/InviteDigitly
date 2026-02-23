@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from '../assets/Logo/Logo-img.png'
+import Logo from '../assets/Logo/Logo.png'
 
 const Navbar = () => {
   return (
@@ -14,13 +14,6 @@ const Navbar = () => {
         <p className="tagline">Elegant Digital Invitations for Every Celebration</p>
       </div>
       <br />
-
-      {/* <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/Categories">Categories</Link></li>
-        <li><Link to="/Samples">Samples</Link></li>
-        <li><Link to="/Create_Invitation">Create Invitation</Link></li>
-      </ul> */}
 
     </nav>
   );
