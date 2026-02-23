@@ -95,6 +95,13 @@ if (loading) {
                   <span className="new-price">₹{item.price}</span>
                 </div>
 
+                 <button
+                  className='btn-order'
+                  onClick={() => navigate('/Create_Invitation')}
+                >
+                  Order Now
+                </button>
+
                 
               </div>
 
