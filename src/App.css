@@ -968,14 +968,16 @@ section{
 .Inventory {
     height: auto;
     padding-bottom: 50px;
-     padding:30px 20px;
   }
   .Inventory h2{
     font-size: 20px;
   }
+  .Inventory-Details{
+    padding: 0px;
+  }
   .Inventory-Details p{
-    padding: 20px;
     text-align: center;
+    font-size: 10px;
   }
 
   .Inventory-Products {

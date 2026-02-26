@@ -45,7 +45,7 @@ if (loading) {
 
         <img src={logo} alt="InviteDigitly" className="loader-logo" />
 
-        <h1 className="loader-title">InviteDigitly</h1>
+        <h1 className="loader-title">InviteDigitally</h1>
 
         <div className="ornament"></div>
 

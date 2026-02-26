@@ -9,7 +9,7 @@ const Footer_site = () => {
         <div className="Footer-row">
 
           <div className="site-details">
-          <h2>InviteDigitly</h2>
+          <h2>InviteDigitally</h2>
             <p>
             InviteDigitly is a creative digital invitation platform crafted to make
             your celebrations memorable. We design elegant, modern and customizable

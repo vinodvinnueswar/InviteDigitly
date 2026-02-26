@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="logo-section">
          <div className="logo">
         <img src={Logo} alt="" />
-        <h1 className="logo">InviteDigitly</h1>
+        <h1 className="logo">InviteDigitally</h1>
       </div>
         {/* <img className="Gold_Line" src={GoldTag} alt="tagline decoration" /> */}
         <p className="tagline">Elegant Digital Invitations for Every Celebration</p>
